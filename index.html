@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG filter practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mousetarget">Hover Here</div>
+
+    <img src="/img/n28_small.jpg" alt="Test Image" id="hoverimage" class="hoverimage">
+    
+    <svg>
+        <filter id="filter1">
+            <feTurbulence id="turbulence" type="turbulence" numOctaves="1" result="NOISE"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="50">
+            </feDisplacementMap>
+            <animate xlink:href="#turbulence" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
+                values="0.01 0.02;0.02 0.04;0.01 0.02" repeatCount="indefinite"></animate>
+        </filter>
+    </svg>
+
+    
+
+    <script src="script.js"></script>
+</body>
+
+</html>
