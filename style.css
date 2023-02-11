@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,52 +6,105 @@
 
 body {
     height: 100vh;
-    width: 100dvw;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    /* cursor: cell; */
+    /* background-color: rgb(20, 20, 20); */
 }
 
-.hoverimage {
-    position: absolute;
+.cursor-image {
     height: 400px;
-	filter: none;
-    display: block;
-    transition: 2s linear forwards;
-    /* pointer-events: none; */
-
+    width: 400px;
+    position: absolute;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    /* animation: cursorAnim 3s linear forwards; */
+    /* filter: url(#filter1); */
+    background-image: url(/img/n28_small.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     z-index: -10;
-    /* animation: anim 1s linear infinite alternate-reverse; */
+    display: block;
+    opacity: .2;
+
+    /* transition: all .5s linear; */
+    /* opacity: 0; */
+}
+
+/* .cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 8px solid gray;
+    border-radius: 50%;
+    opacity: .5;
+    top: -9px;
+    left: -9px;
+    animation: cursorAnim2 .5s infinite alternate;
+} */
+
+@keyframes cursorAnim {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+        /* opacity: 1; */
+    }
+    to {
+        transform: scale(.4);
+        /* opacity: .2; */
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    /* border: 1px solid red; */
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+        /* opacity: 1; */
+    }
+    50% {
+        transform: scale(1.5);
+        /* opacity: .2; */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+
+    }
 }
 
 .mousetarget {
-    font-size: 6rem;
+    font-size: 5rem;
     padding: 20px;
-    /* background-color: bisque; */
+    /* background-color: aqua; */
 }
 
-.show {
+.mousetarget:hover + .cursor-image {
+    opacity: 1;
+
     display: block;
-	filter: url(#filter1);
-    transition: filter 3s;
 }
-
-svg {
-    background-color: aquamarine;
-    display: none;
-}
-
-/* #turbulence {
-    animation: anim 10s linear infinite;
-} */
-
-/* @keyframes anim {
-    from {
-        transform: translate(-5%, -5%);
-    }
-    to {
-        transform: translate(0%, 0%);
-    }
-} */
