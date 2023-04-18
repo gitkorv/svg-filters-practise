@@ -13,33 +13,27 @@ function showHoverImage(word) {
     word.addEventListener('mouseleave', e => {
         cursor.classList.remove(`${wordId}--show`);
     })
+
+    window.addEventListener('mousemove', e => {
+        cursor.x = e.pageX;
+        cursor.y = e.pageY;
+        cursor.style.filter = "url(#filter1)";
+    
+        function checkForMouseMove() {
+            if (cursor.x === e.pageX && cursor.y === e.pageY) {
+                cursor.style.filter = "none";
+            }
+        }
+        setTimeout(checkForMouseMove, 500);
+    
+        cursor.style.top = e.pageY -200 + "px";
+        cursor.style.left = e.pageX -200 + "px";          
+    } )
 }
 
 hoverWords.forEach(entry => {
     showHoverImage(entry);
 })
-
-
-window.addEventListener('mousemove', e => {
-    cursor.x = e.pageX;
-    cursor.y = e.pageY;
-    cursor.style.filter = "url(#filter1)";
-    // cursor.style.display = "none";
-
-    const myTimeout = setTimeout(checkForMouseMove, 500);
-
-    function checkForMouseMove() {
-        if (cursor.x === e.pageX && cursor.y === e.pageY) {
-            cursor.style.filter = "none";
-        }
-    }
-
-    cursor.style.top = e.pageY -200 + "px";
-    cursor.style.left = e.pageX -200 + "px";
-    
-    // console.log(cursor.onmousemove);
-            
-} )
 
 
 document.addEventListener('click', () => {

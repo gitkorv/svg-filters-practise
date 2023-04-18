@@ -30,7 +30,8 @@ body {
     display: none;
     /* opacity: .2; */
 
-    /* transition: all .5s linear; */
+    transition: all 1s linear;
+    transform-origin: center;
     /* opacity: 0; */
 }
 
@@ -108,13 +109,21 @@ body {
 
 .text-container span:hover {
     position: relative;
-    color: brown;
+    color: rgb(42, 165, 50);
     transform: scale(2);
 }
+
+/* span[class $= "show"] {
+    height: 400px;
+    width: 400px;
+    transition: all 1s linear;
+
+} */
 
 .text__here--show {
     display: block;
     background-image: url(/img/n28-1.jpg);
+
 }
 .text__this--show {
     display: block;
